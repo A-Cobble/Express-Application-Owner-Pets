@@ -8,7 +8,10 @@ dotenv.config()
 const app = express();
 const PORT = process.env.PORT || 4000;
 const pool = new pg.Pool({
-    database: "ownerPets"
+    connectionString: process.send.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 app.use(express.static("static"));
