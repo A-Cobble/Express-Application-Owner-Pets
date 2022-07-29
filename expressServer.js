@@ -1,9 +1,12 @@
 import express from 'express';
 import pg from 'pg';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const pool = new pg.Pool({
     database: "ownerPets"
 });
