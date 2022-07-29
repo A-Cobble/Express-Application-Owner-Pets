@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "nodemon expressServer.js"
+    "dev": "nodemon expressServer.js",
+    "start": "node expressServer.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
