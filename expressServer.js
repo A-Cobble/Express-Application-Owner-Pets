@@ -9,9 +9,10 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const pool = new pg.Pool({
     connectionString: process.env.DATABASE_URL,
-    ...PORT(process.env.NODE_ENV === "production" ? {
+    ...(process.env.NODE_ENV === "production" 
+    ? {
         ssl: {
-            rejectUnauthorized: false,
+            rejectUnauthorized: false
         }
     }
     : {}),
