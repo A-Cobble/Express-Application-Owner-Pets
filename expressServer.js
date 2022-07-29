@@ -4,14 +4,17 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 dotenv.config()
-
+    
 const app = express();
 const PORT = process.env.PORT || 4000;
 const pool = new pg.Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
+    ...PORT(process.env.NODE_ENV === "production" ? {
+        ssl: {
+            rejectUnauthorized: false,
+        }
     }
+    : {}),
 });
 
 app.use(express.static("static"));
